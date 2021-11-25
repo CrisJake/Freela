@@ -1,0 +1,13 @@
+/* Service create page */
+#service-create-container {
+    padding: 30px
+}
+
+#service-create-container label {
+    font-weight: bold;
+}
+
+#service-create-container input,
+#service-create-container textarea {
+    font-size: 12px;
+}

@@ -23,4 +23,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/service/new', [ServiceController::class, 'create']);
-Route::post('/service/{id}', [ServiceController::class, 'store']);
+Route::post('/service/{user_id}', [ServiceController::class, 'store']);

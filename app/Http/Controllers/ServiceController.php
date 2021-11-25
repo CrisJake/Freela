@@ -19,7 +19,7 @@ class ServiceController extends Controller
 
         $service = new Service;
 
-        $user_id = $request->route('id');
+        $user_id = $request->route('user_id');
 
         $service->tipo_servico = $request->title;
         $service->tempo_servico = $request->tempo_servico;

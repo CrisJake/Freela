@@ -6,15 +6,10 @@
 
 <div id="service-create-container" class="col-md-6 offset-md-4">
     <h1>Cadastro de serviços</h1>
-    <!-- <form action="/service" method="POST"> -->
     <form action="/service/{{ Auth::user()->id }}" method="POST">
         @csrf
         <div class="container">
             <div class="jumbotron" style="background-color: #C0C0C0">
-            
-
-                    <!-- <a href="/service/{{ Auth::user()->id }}"></a> -->
-                    <!-- <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"> -->
                 
                     <div class ="col-md-6 col-centered">
                         <label for="title">Serviço:</label>
@@ -22,7 +17,8 @@
                     </div>
                     <div class ="col-md-6 col-centered">
                         <label for="title">Por quanto tempo prestou esse serviço?</label>
-                        <input class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" type="date" class="form" id="tempo_servico" name="tempo_servico">
+                        <input class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" type="date" class="form" id="tempo_inicial" name="tempo_inicial">
+                        <input class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" type="date" class="form" id="tempo_final" name="tempo_final">
                     </div>
                     <div class ="col-md-6 col-centered">
                         <label for="title">Descrição:</label>

@@ -17,7 +17,8 @@ class CreateServicesTable extends Migration
             $table->id();
             
             $table->string('tipo_servico', 128);
-            $table->date('tempo_servico');
+            $table->date('tempo_inicial');
+            $table->date('tempo_final')->nullable();
             $table->string('descricao', 256)->nullable();
             $table->foreignId('user_id')->constrained('users');
 

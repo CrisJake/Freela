@@ -22,7 +22,8 @@ class ServiceController extends Controller
         $service->user_id = $request->route('user_id');
 
         $service->tipo_servico = $request->title;
-        $service->tempo_servico = $request->tempo_servico;
+        $service->tempo_inicial = $request->tempo_inicial;
+        $service->tempo_final = $request->tempo_final;
         $service->descricao = $request->descricao;
         
         $service->save();

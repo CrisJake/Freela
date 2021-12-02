@@ -11,6 +11,20 @@ class ServiceController extends Controller
                 
     }
 
+    public function list(Request $request) {
+        $search = request('search');
+
+        if($search) {
+            $service = Service::where([
+                ['tipo_servico', 'like', '%'.$search.'%']
+            ])->get();
+        }  else {
+            $service = Service::all();
+        }    
+        
+        return view('services.ListService',['services' => $service, 'search' => $search]);
+    }
+
     public function create() {
         return view('services.CreateService');
     }

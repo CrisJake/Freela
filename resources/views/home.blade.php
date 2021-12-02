@@ -18,9 +18,17 @@
                 </div>
                 <div class="row justify-content-center">
                     <button onclick="location.href = '/service/new/'" id="myButton" class="btn btn-primary">Registre um Serviço</button>
-</div>
+                </div>
             </div>
         </div>
+
+        <div id="search-container" class="col-md-12">
+            <h1>Busque um evento</h1>
+            <form action="/service/list" method="GET">
+                <input type="text" id="search" name="search" class="form-control" placeholder="Procurar...">
+            </form>
+        </div>
+
     </div>
 </div>
 @endsection

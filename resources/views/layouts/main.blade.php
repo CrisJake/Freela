@@ -44,7 +44,7 @@
                     <a href="/login" class="nav-link">Entrar</a>
                   </li>
                   <li class="nav-item">
-                    <a href="/auth/register" class="nav-link">Cadastrar</a>
+                    <a href="/register" class="nav-link">Cadastrar</a>
                   </li>
                 </ul>
               </div>

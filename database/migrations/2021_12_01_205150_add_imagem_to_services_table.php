@@ -14,7 +14,7 @@ class AddImagemToServicesTable extends Migration
     public function up()
     {
         Schema::table('services', function (Blueprint $table) {
-            $table->string('imagem');
+            $table->string('imagem')->nullable();
         });
     }
 

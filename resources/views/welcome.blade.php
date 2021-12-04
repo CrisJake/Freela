@@ -11,6 +11,8 @@
         </div>
         </div>
     </div>
-</div> 
+</div>
+
+<p> daniel </p>
 
 @endsection

@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="col-md-12 col-centered">
-    <h1 style="text-align:center">Serviços</h1>
+    <h1 style="text-align:center">Busca por: "{{$_GET["search"]}}"</h1>
     <div class="row">
         @foreach($services as $service)
         <div class="col-sm-3">

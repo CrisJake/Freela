@@ -8,6 +8,8 @@ use App\Models\Service;
 class ServiceController extends Controller
 {
     public function index() {
+        $services = Service::all();
+        return view('welcome', ['services' => $services]);
                 
     }
 
@@ -32,7 +34,7 @@ class ServiceController extends Controller
     public function store(Request $request) {
 
         $service = new Service;
-
+        $user = auth()->user();
         $service->user_id = $request->route('user_id');
 
         $service->tipo_servico = $request->title;
@@ -42,7 +44,8 @@ class ServiceController extends Controller
         
         $service->save();
 
-        return redirect('/home');
-
+        return redirect('/')->with('msg', 'Serviço criado com sucesso!');
     }
+  
+    
 }

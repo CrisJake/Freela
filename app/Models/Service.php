@@ -9,3 +9,4 @@ class Service extends Model
 {
     use HasFactory;
 }
+

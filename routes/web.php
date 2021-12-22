@@ -22,8 +22,13 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/service/new', [ServiceController::class, 'create']);
+Route::get('/service/new', [ServiceController::class, 'create'])->middleware('auth');
 Route::get('/service/list', [ServiceController::class, 'list']);
 
+Route::get('/dashboard', [ServiceController::class, 'dashboard'])->middleware('auth');
 
 Route::post('/service/{user_id}', [ServiceController::class, 'store']);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

@@ -4,13 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Service;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImageUploadController;
+
+Route::get('imagem-upload', [ ImageUploadController::class, 'imagemUpload' ])->name('imagem.upload');
+Route::post('imagem-upload', [ ImageUploadController::class, 'imagemUploadPost' ])->name('imagem.upload.post');
 
 class ServiceController extends Controller
 {
     public function index() {
         $services = Service::all();
         return view('welcome', ['services' => $services]);
-                
+
     }
 
     public function list(Request $request) {
@@ -22,8 +27,8 @@ class ServiceController extends Controller
             ])->get();
         }  else {
             $service = Service::all();
-        }    
-        
+        }
+
         return view('services.ListService',['services' => $service, 'search' => $search]);
     }
 
@@ -41,11 +46,12 @@ class ServiceController extends Controller
         $service->tempo_inicial = $request->tempo_inicial;
         $service->tempo_final = $request->tempo_final;
         $service->descricao = $request->descricao;
-        
+
         $service->save();
 
         return redirect('/')->with('msg', 'Serviço criado com sucesso!');
     }
-  
-    
+
+
+
 }

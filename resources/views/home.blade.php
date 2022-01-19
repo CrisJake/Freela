@@ -14,6 +14,10 @@
                     <input type="text" id="search" name="search" class="form-control" placeholder="Procurar...">
                     <br><button type="submit" class="btn btn-primary">Pesquisar</button>
                 </form>
+                
+                <form action="service/listAll" method="GET">
+                    <br><button type="submit" class="btn btn-primary">Listar todos</button>
+                </form>
             </div>
         </div>
     </div>

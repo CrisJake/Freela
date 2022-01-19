@@ -24,6 +24,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/service/new', [ServiceController::class, 'create'])->middleware('auth');
 Route::get('/service/list', [ServiceController::class, 'list']);
+Route::get('/service/listAll', [ServiceController::class, 'listAll']);
 
 Route::get('/dashboard', [ServiceController::class, 'dashboard'])->middleware('auth');
 

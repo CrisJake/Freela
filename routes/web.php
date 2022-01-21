@@ -26,6 +26,8 @@ Route::get('/service/new', [ServiceController::class, 'create'])->middleware('au
 Route::get('/service/list', [ServiceController::class, 'list']);
 Route::get('/service/listAll', [ServiceController::class, 'listAll']);
 
+Route::get('/user/{user_id}', [App\Http\Controllers\UserController::class, 'getUser']);
+
 Route::get('/dashboard', [ServiceController::class, 'dashboard'])->middleware('auth');
 
 Route::post('/service/{user_id}', [ServiceController::class, 'store']);

@@ -21,22 +21,18 @@ class ServiceController extends Controller
     public function list(Request $request) {
         $search = request('search');
 
-        // if($search) {
-            $service = Service::where([
-                ['tipo_servico', 'like', '%'.$search.'%']
-            ])->get();
-        // }  else {
-        //     $service = Service::all();
-        // }
+        $service = Service::query()->when($search, function($builder) use ($search) {
+            $builder->where('tipo_servico', 'ilike', "%$search%");
+        })->get();
 
         return view('services.ListService',['services' => $service, 'search' => $search]);
     }
 
     public function listAll() {
         $service = Service::all();
-        //$search = '';
+        
        
-        return view('services.ListService',['services' => $service, 'search' => $search]);
+        return view('services.ListAllService',['services' => $service]);
     }
 
     public function create() {

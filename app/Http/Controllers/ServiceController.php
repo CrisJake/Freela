@@ -22,7 +22,8 @@ class ServiceController extends Controller
         $search = request('search');
 
         $service = Service::query()->when($search, function($builder) use ($search) {
-            $builder->where('tipo_servico', 'ilike', "%$search%");
+            $builder->where('tipo_servico', 'like', "%$search%")
+            ->orWhere('descricao', 'like', "%$search%");
         })->get();
 
         return view('services.ListService',['services' => $service, 'search' => $search]);

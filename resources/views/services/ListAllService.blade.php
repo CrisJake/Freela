@@ -27,9 +27,7 @@
     </div>
 </div>
 
-@if(count($services) == 0 && $search)
-<p>Não foi possível encontrar nenhum serviço com {{ $search }}</p>
-@elseif(count($services) == 0)
+@if(count($services) == 0)
 <p>Não há eventos disponíveis</p>
 @endif
 

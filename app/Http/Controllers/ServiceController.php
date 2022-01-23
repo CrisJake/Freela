@@ -51,6 +51,22 @@ class ServiceController extends Controller
         $service->tempo_final = $request->tempo_final;
         $service->descricao = $request->descricao;
 
+        //imagem
+
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+
+            $requestImage = $request->image;
+
+            $extension = $requestImage->extension();
+            
+
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+
+            $requestImage->move(public_path('img/servicos'), $imageName);
+
+            $service->image = $imageName;
+        }
+
         $service->save();
 
         return redirect('/')->with('msg', 'Serviço criado com sucesso!');

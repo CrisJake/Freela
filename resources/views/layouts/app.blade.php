@@ -55,7 +55,7 @@
                             @endif
                         @else
                         <li class="nav-item">
-                                    <a class="nav-link" href="/home/">Buscar</a>
+                                    <a class="nav-link" href="/home/">Home</a>
                                 </li>
                         <li class="nav-item">
                                     <a class="nav-link" href="/service/new/">Registrar Serviço</a>

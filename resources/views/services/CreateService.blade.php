@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.app')
 
 @section('title', 'Cadastro de Serviço')
 
@@ -6,11 +6,11 @@
 
 <div id="service-create-container" class="col-md-12 col-centered">
     <h1 style="text-align:center">Cadastro de serviços</h1>
-    <form action="/service/{{ Auth::user()->id }}" method="POST">
+    <form action="/service/{{ Auth::user()->id }}" method="POST" enctype="multipart/form-data">
         @csrf
          <div class="form-group">
               <label for="imagem">Imagem do Serviço:</label>
-              <input type="file" id="imagem" name="imagem" class="from-control-file">
+              <input type="file" id="image" name="image" class="from-control-file">
         </div>
         <div class="form-group">
             <label for="title">Serviço:</label>

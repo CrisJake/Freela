@@ -18,7 +18,7 @@ class ServiceController extends Controller
 
     }
 
-    public function list(Request $request) {
+    public function getService(Request $request) {
         $search = request('search');
 
         $service = Service::query()->when($search, function($builder) use ($search) {
@@ -29,11 +29,11 @@ class ServiceController extends Controller
         return view('services.ListService',['services' => $service, 'search' => $search]);
     }
 
-    public function listAll() {
-        $service = Service::all();
+    public function getServices() {
+        $services = Service::all();
         
        
-        return view('services.ListAllService',['services' => $service]);
+        return view('services.ListAllService',['services' => $services]);
     }
 
     public function create() {

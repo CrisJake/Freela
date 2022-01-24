@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +24,10 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/service/new', [ServiceController::class, 'create'])->middleware('auth');
-Route::get('/service/list', [ServiceController::class, 'list']);
-Route::get('/service/listAll', [ServiceController::class, 'listAll']);
+Route::get('/service/getService', [ServiceController::class, 'getService']);
+Route::get('/service/getServices', [ServiceController::class, 'getServices']);
 
-Route::get('/user/{user_id}', [App\Http\Controllers\UserController::class, 'getUser']);
+Route::get('/user/{user_id}', [UserController::class, 'getUser']);
 
 Route::get('/dashboard', [ServiceController::class, 'dashboard'])->middleware('auth');
 

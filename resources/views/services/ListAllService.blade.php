@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.app')
 
 @section('title', "Busca do Serviço")
 
@@ -10,7 +10,11 @@
         <div class="col-sm-3" style="margin-bottom:10px">
             <div class="card text-white bg-dark">
                 <div class="card-body">
-                    <h5 class="card-title"><p><b>Tipo do serviço prestado:</b> </p>{{ $service->tipo_servico }}</h5>
+                    <div style="height:200px; width: 200px;">
+                         <img src="/img/servicos/{{ $service->image }}" style="width: 100%; heigth: 100%; object-fit: contain;">
+                    </div>
+                    
+                    <h5 class="card-title" style= "margin-top: 10px"><p><b>Tipo do serviço prestado:</b> </p>{{ $service->tipo_servico }}</h5>
                      <p class="card-date"><p><b>Tempo de serviço:</b></p> {{ date('d/m/Y', strtotime($service->tempo_inicial)) }} - {{ date('d/m/Y', strtotime($service->tempo_final)) }}</p>
                     <h5 class="card-title"><p><b>Descrição do serviço:</b> </p>{{ $service->descricao }}</h5>
                     

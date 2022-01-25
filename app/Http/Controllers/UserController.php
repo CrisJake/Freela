@@ -11,7 +11,7 @@ class UserController extends Controller
     public function getUser(Request $request) {
         $user_id = $request->route('user_id');
 
-        $user = User::where('id', '=', $user_id)->get();
+        $user = User::find($user_id);
 
         return view('users.GetUsers', ['user' => $user]);
     }

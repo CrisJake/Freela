@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageUploadController;
+use App\Http\Requests\StoreServiceRequest;
 
 Route::get('imagem-upload', [ ImageUploadController::class, 'imagemUpload' ])->name('imagem.upload');
 Route::post('imagem-upload', [ ImageUploadController::class, 'imagemUploadPost' ])->name('imagem.upload.post');
@@ -19,6 +20,10 @@ class ServiceController extends Controller
     }
 
     public function getService(Request $request) {
+        $request->validate([
+            'search' => 'required',
+        ]);
+
         $search = request('search');
 
         $service = Service::query()->when($search, function($builder) use ($search) {
@@ -40,13 +45,12 @@ class ServiceController extends Controller
         return view('services.CreateService');
     }
 
-    public function store(Request $request) {
-
+    public function store(StoreServiceRequest $request) {
         $service = new Service;
         $user = auth()->user();
         $service->user_id = $request->route('user_id');
 
-        $service->tipo_servico = $request->title;
+        $service->tipo_servico = $request->tipo_servico;
         $service->tempo_inicial = $request->tempo_inicial;
         $service->tempo_final = $request->tempo_final;
         $service->descricao = $request->descricao;

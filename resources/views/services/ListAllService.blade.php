@@ -19,7 +19,7 @@
                     <h5 class="card-title"><p><b>Descrição do serviço:</b> </p>{{ $service->descricao }}</h5>
                     
                     <form action="/user/{{$service->user_id}}">
-                        <br><input onclick="location.href = '/user'" type="submit" id="Button" class="btn btn-success" value="Ver mais">
+                        <br><input onclick="location.href = '/user'" type="submit" id="Button" class="btn btn-success" value="Ver contato">
                     </form>                    
                 </div>
             </div>

@@ -6,6 +6,17 @@
 
 <div id="service-create-container" class="col-md-12 col-centered">
     <h1 style="text-align:center">Cadastro de serviços</h1>
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <form action="/service/{{ Auth::user()->id }}" method="POST" enctype="multipart/form-data">
         @csrf
          <div class="form-group">
@@ -13,12 +24,12 @@
               <input type="file" id="image" name="image" class="from-control-file">
         </div>
         <div class="form-group">
-            <label for="title">Serviço:</label>
-            <input type="text" class="form-control" id="title" name="title" placeholder="Jardinagem, pedreiro, motorista...">
+            <label for="title">Título do serviço:</label>
+            <input type="text" class="form-control" id="tipo_servico" name="tipo_servico" placeholder="Jardinagem, pedreiro, motorista...">
         </div>
         <div class="form-group">
-            <label for="title">Por quanto tempo prestou esse serviço?:</label>
-            <input class="form-control" type="date" class="form" id="tempo_inicial" name="tempo_inicial">
+            <label for="title">Por quanto tempo prestou esse serviço?</label>
+            <input class="form-control" type="date" class="form" id="tempo_inicial" name="tempo_inicial" style="margin-bottom:10px">
             <input class="form-control" type="date" class="form" id="tempo_final" name="tempo_final">
         </div>
         <div class="form-group">
